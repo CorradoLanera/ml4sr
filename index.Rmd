@@ -1,25 +1,29 @@
 ---
 title: "Machine Learning Assisted Systematic Reviews"
 subtitle: 'Winter School Ph.D. Translational Specialistic Medicine "G. B. Morgagni"'
-author: "Corrado Lanera"
+author: "[CorradoLanera](www.CorradoLanera.it)"
+date: "2022-05-25 (last update: `r Sys.Date()`)"
 institute: "Unit of Biostatistics, Epidemiology, and Public Health --- University of Padova"
-date: "2022-01-25 --- Zoom webinar"
-output:
+output: 
   xaringan::moon_reader:
-    chakra: libs/remark-latest.min.js
-    seal: false
-    self_contained: false
-    lib_dir: libs
+    seal: false  # no title slide! Do It Yourself
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+    css: xaringan-themer.css
 ---
-
+class: center, middle, bg_title, hide-count
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-
+knitr::opts_chunk$set(
+  fig.retina = 3,
+  warning = FALSE,
+  message = FALSE,
+  comment = "",
+  out.width = "100%"
+)
 library(knitr)
 library(xaringanExtra)
 
@@ -29,62 +33,25 @@ library(gridExtra)
 library(countdown)
 library(metathis)
 
-
-
-opts_chunk$set(
-  message = FALSE,
-  comment = "",
-  fig.dim  = c(5, 4.5),
-  out.width = "100%"
-)
-
 options(width = 59) # fit into the rigth-column slides
 
 ```
 
 
-```{r xaringan-tachyons, echo=FALSE}
+```{r xaringans, echo=FALSE}
 xaringanExtra::use_tachyons()
+xaringanExtra::use_share_again()
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_progress_bar(color = "#0051BA", location = "top")
 ```
-
-
-class: center, middle, bg_title, hide-count
-
-# 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-# .alert[Machine Learning Assisted]
-## Systematic Reviews
-
-<br>
-<br>
-<br>
-<br>
-
-Winter School Ph.D. Translational Specialistic Medicine "G. B. Morgagni"<br>--- University of Padova
-
-\- Zoom, 2022/01/25 -
-
-
-
-
-
-
-
-
 
 ```{r style-share-again, echo=FALSE}
 style_share_again(
   share_buttons = c("twitter", "linkedin", "pocket")
 )
 ```
+
 
 ```{r meta, echo=FALSE}
 meta() %>%
@@ -105,15 +72,6 @@ meta() %>%
 ```
 
 ```{css, echo=FALSE}
-pre {
-  max-width: 100%;
-  overflow-x: scroll;
-}
-.inverse {
-  background-color: #272822;
-  color: #d6d6d6;
-  text-shadow: 0 0 20px #333;
-}
 .left-code {
   color: #777;
   width: 38%;
@@ -135,13 +93,8 @@ pre {
   width: 60%;
   float: right;
 }
-
-.full-line {
-  width: 100%;
-  float:left
-}
-.remark-code {
-  font-size: 60%;
+.hide-count .remark-slide-number {
+  display: none;
 }
 
 .bg_title {
@@ -158,59 +111,421 @@ pre {
       right: 0px;
       bottom: 0px;
       left: 0px;
-      opacity: 0.5;
+      opacity: 0.4;
       z-index: -1;
 }
 
-.hide-count .remark-slide-number {
-  display: none;
-}
 ```
 
 
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+red <- "#f34213"
+purple <- "#3e2f5b"
+orange <- "#ff8811"
+green <- "#136f63"
+white <- "#FFFFFF"
+pastel_orange <- "#F97B64"
+blu_gray <- "#1F4257"
+style_duo_accent(
+    colors = c(
+        red = red,
+        purple = purple,
+        orange = orange,
+        green = green,
+        white = white,
+        pastel_orange = pastel_orange,
+        blu_gray = blu_gray
+    )
+)
+```
+
+
+# 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# .alert[Machine Learning Assisted]
+## Systematic Reviews
+
+
+<br>
+
+Winter School - Zoom, 2022/01/25 -
+
+Ph.D. in Translational Specialistic Medicine "G. B. Morgagni"
+
+Corrado Lanera | Unit of Biostatistics Epidemiology and Public Health
+
+<img src="img/logo_800anni.png" width="150px"/>
+<img src="img/DSCTV.png" width="50px"/>
+<img src="img/UBEP.png" width="50px"/>
+<img src="img/LAIMS.png" width="50px"/>
 
 ---
-class: inverse, center, bottom, hide-count
+class: inverse, bottom, right, hide-count
 
 
+```{r, echo=FALSE, out.width = "50%"}
+knitr::include_graphics("img/profilo_CL.jpg")
+```
+# Find me at...
 
-.right[
 
-  ```{r, echo=FALSE, out.width = "40%"}
-  knitr::include_graphics(c("img/profilo_CL.jpg"))
-  ```
-  
-  # Find me at ...
-  
-  [`r anicon::faa("envelope", animate = "passing")`](mailto:corrado.lanera@ubep.unipd.it) [corrado.lanera@ubep.unipd.it](mailto:corrado.lanera@ubep.unipd.it)
-  
-  [`r anicon::faa("link", animate = "shake")`](https://www.unipd-ubep.it/) [https://www.unipd-ubep.it/](https://www.unipd-ubep.it/)
-  
-  [`r anicon::faa("link", animate = "shake")`](https://www.CorradoLanera.it) [www.CorradoLanera.it](https://www.CorradoLanera.it)
+[`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/)
 
-]
+[`r fontawesome::fa("mail-bulk")`](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera@ubep.unipd.it**](mailto:Corrado.Lanera@ubep.unipd.it)
+
+[`r fontawesome::fa("github")`](https://github.com/corradolanera)
+[`r fontawesome::fa("twitter")`](https://twitter.com/corradolanera)
+[`r fontawesome::fa("telegram-plane")`](https://telegram.me/CorradoLanera)
+**@CorradoLanera**
+
+[`r fontawesome::fa("github")`](https://github.com/UBESP-DCTV)
+**@UBESP-DCTV**
+
+
 ---
 class: hide-count
 
 
 # .orange[Outline]
 
+- What is a **Systematic Review**
+
+- How **Machine Learning** works for **NLP**
+
+- How SRs can benefit from **automation** and **ML**
+
+- Issues and challenges
+
 
 
 ---
 class: inverse, middle, center, hide-count
 
-# .orange[Overview]
+# .orange[What is a **Systematic Review**]
+ 
 
+
+---
+class: right
+
+![](img/Hierarchy_of_Evidence.png)
+
+
+---
+# PRISMA2020 Flow diagram
+
+```{r, echo =FALSE, out.width = "70%", fig.cap="https://doi.org/10.1371/journal.pmed.1003583"}
+knitr::include_graphics("img/prisma-flow-ml.png")
+```
+
+---
+class: center, middle
+# PRISMA2020 Flow diagram (Shiny assistant)
+
+```{r, echo = FALSE}
+knitr::include_app("https://estech.shinyapps.io/prisma_flowdiagram/")
+```
+
+Full page: [https://estech.shinyapps.io/prisma_flowdiagram/](https://estech.shinyapps.io/prisma_flowdiagram/)
+
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+# .orange[How **Machine Learning** works for **NLP**]
+
+
+---
+
+# .orange[What is **Machine Learning**]
+
+
+Machine Learning deals with the study, the design and the development of algorithms that give computers the capability to learn without being explicitly programmed
+
+.right[Arthur Samuel, 1959]
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="70%"}
+knitr::include_graphics("img/samuel.png")
+```
+
+
+
+
+---
+# .orange[Machine Learning input/output]
+
+
+
+.left-code[
+In machine learning, we provide the .orange[input] (data), the desired result and out comes the .orange[learning] algorithm 
+
+<br>
+<br>
+
+Mathematically, Machine Learning problems are simply .orange[*optimization*] problems
+
+]
+
+.right-plot[
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="100%"}
+include_graphics("img/MLvsTrad.png")
+```
+]
+
+
+
+---
+
+### .orange[Unsupervised learning]
+
+> The input data is _not labeled_ (there are not right answers!)
+
+The ML is given the input data and is left to learn optimal .orange[patterns]/.orange[clusters].
+
+
+
+### .orange[(Passive) Supervised learning]
+
+> The learning algorithm is provided with a set of inputs along with the corresponding .orange[correct] outputs.
+
+Learning involves the algorithm comparing its current actual inferred output with the correct one, so that to learn from its .orange[errors] (to minimize it).
+
+
+### .orange[Active learning]
+
+> The learning algorithm interactively queries a user (or some other information source, an _oracle_) to label new data points with the desired outputs.
+
+Learning like the supervised one, with input data labeled on the .orange[oracle's knowledge]. The model continues to cycle query/train on ther left unlabelled data.
+
+
+
+---
+# Deep Learning's Neurons
+
+I.e., anything more than old new-fashioned (generalized*) logistic regressions
+
+<br>
+
+.center[<img src="img/neuron.gif" width="70%"/>]
+
+<br>
+
+$\text{output(s)} = g(\sum_{i=1}^n a_i*w_i)$
+
+<br>
+
+\*generalized := any **non-linear**, **differentiable**, $\mathbb{R}^n\to \mathbb{R}$ function.
+
+
+
+
+---
+# Fully connected network 
+
+<pre><img src="img/mlp.png" width="50%"/>         <img src="img/fc.png" width="35%"/></pre>
+
+
+.center[<img src="img/descent.gif" width="50%"/>]
+
+
+
+
+
+---
+# Recurrent networks
+
+.center[<img src="img/rnn-full_CL.png" width="100%"/>]
+
+<small>
+
+$x^{<t>}\quad y^{<t>}\quad a^{<t>}$: input/output/activation at position t 
+
+$W_{hk}$ : weight matrix used on input k for output h
+
+$b_a\quad b_y$: (bias) vector for activation a, and output y
+
+$g_a\quad g_y$: nonlinearity for activation a, and output y
+
+$T$: length of input/output
+
+
+---
+# Sequencies (input/output)
+
+<br>
+
+.center[<img src="img/sequences.png" width="100%"/>]
+
+
+
+
+---
+class: inverse, middle, center, hide-count
+
+# .orange[How SRs can benefict from<br>**automation** and **ML**]
+
+
+---
+class: center, middle
+
+
+
+```{r, echo=FALSE, out.width = "60%"}
+knitr::include_graphics("img/sr_process.png")
+```
+
+[https://systematicreview.info/](https://systematicreview.info/)
+
+
+---
+
+# Search string
+
+### Questions
+- Can I avoid explict redundancy in the search string?
+- Can I use preliminary results to iteratively create a search string?
+
+### ML assistence
+- Words variation/synonyms (supervised, one-to-one/one-to-many)
+- MeSH extraction (supervised, many-to-many, human checked required)
+- Clustering / topic modelling (unsupervised)
+
+---
+
+# Searching
+
+### Question
+- How can I make my search string suitable for multiple DBs?
+
+
+### ML assistence
+- Machine translations (supervised, many-to-many)
+  - E.g., PolyGlot - https://sr-accelerator.com/#/polyglot
+- Pre-trained classifiers on records from standard DBs' search applied to other DBs (supervised, many-to-one)
+  - E.g., COSTUMER - https://doi.org/10.1016/j.jclinepi.2018.06.015
+
+
+---
+# Screening
+
+### Questions
+
+- How can I filter out records that are not RCTs?
+- How can I filter out records I am not interested in?
+
+### ML assistence
+
+- Classify relevant/not relevant (many-to-one)
+  - Passive Pre-trained
+     - E.g., RoboSearch - https://robotsearch.vortext.systems/
+  - Active ranking 
+     - E.g., ASReview - https://asreview.nl/
+
+<br>
+
+.orange[Trade-off]: minimize number of papers retained (exploration) Vs Maximize performance (exploitation). It is not possible to find a way to guarantee optimal performance without exploring all the records!
+
+
+
+
+---
+class: inverse, hide-count
+
+# .orange[Issues and challenges]
+### ML technologies needs
+
+- Transparency
+
+- Validation
+
+- **FAIR** principles
+
+  - **F**indable (publication bias, data repositories)
+  - **A**ccessible (standard protocols/APIs, authentication and authorization)
+  - **I**nteroperability (cross-communications)
+  - **R**eusability (license, attribution, updatable)
+
+- Trust
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+**Issue**: High number of new (and forgotten) tools, and updates
+]
+
+
+---
+
+# ICASR & Vienna Principles
+
+International Collaboration for the Automation of System Reviews (ICASR) 2015/10/02, Vienna Austria - https://ebrnetwork.org/the-vienna-principles/
+
+- Systematic reviews involve multiple tasks, each with different issues, but **all must be improved**.
+- **Automation may assist with all tasks**, from scoping reviews to identifying research gaps as well protocol development to writing and dissemination of the review.
+- The processes for each task **can and should be continuously improved**, to be more efficient and more accurate.
+- Automation can and should **facilitate** the production of systematic reviews that adhere to **high standards** for the reporting, conduct and updating of rigorous reviews.
+- Developments should also provide for **flexibility in combining and using**, e.g. subdividing or merging steps and allowances for different users to use different interfaces.
+- Different groups with different expertise are working on different parts of the problem; to improve reviews as a whole will require **collaboration** between these groups.
+- Every automation technique **should be shared**, preferably by making code, evaluation data and corpora available **for free**.
+- All automation techniques and tools should be evaluated using a **recommended and replicable method** with results and data reported.
+
+
+---
+
+# .orange[Find your SR's ML assistant]
+
+
+- http://systematicreviewtools.com/
+
+- https://icasr.github.io
+
+- https://sr-accelerator.com/#/tools
+
+- https://library-guides.ucl.ac.uk/systematic-reviews/software
 
 
 ---
 class: inverse, center, middle, hide-count
 
-# `r anicon::faa('thumbs-up', animate='float', size=5)`
 
-```{r, echo=FALSE, out.width = "40%"}
-knitr::include_graphics(c("img/thankyou-robot.jpg"))
-```
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+.left[
+_If you think the only acceptable performance is the "perfect performance",<br>AI is not for you!<br>But, I've heard that even humans have made mistakes..._
+]
+
+.tr[
+— Daniel Oberski<br>2021/03/26 ASReview interview<br>https://daob.nl/
+]
+]
+
+<br>
+
+# Thank you!
+
+
+<br>
+<br>
+
+Slides: https://corradolanera.github.io/ml4sr/
+
+
+[`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/) | 
+[`r fontawesome::fa("mail-bulk")`](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera@ubep.unipd.it**](mailto:Corrado.Lanera@ubep.unipd.it)
+
+[`r fontawesome::fa("github")`](https://github.com/corradolanera)
+[`r fontawesome::fa("twitter")`](https://twitter.com/corradolanera)
+[`r fontawesome::fa("telegram-plane")`](https://telegram.me/CorradoLanera)
+**@CorradoLanera** | 
+[`r fontawesome::fa("github")`](https://github.com/UBESP-DCTV)
+**@UBESP-DCTV**
 
 
