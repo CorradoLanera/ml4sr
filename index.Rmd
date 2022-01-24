@@ -15,6 +15,11 @@ output:
 ---
 class: center, middle, bg_title, hide-count
 
+<img src="img/logo_800anni.png" width="150px"/>
+<img src="img/DSCTV.png" width="50px"/>
+<img src="img/UBEP.png" width="50px"/>
+<img src="img/LAIMS.png" width="50px"/>
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
@@ -111,7 +116,7 @@ meta() %>%
       right: 0px;
       bottom: 0px;
       left: 0px;
-      opacity: 0.4;
+      opacity: 0.3;
       z-index: -1;
 }
 
@@ -141,31 +146,23 @@ style_duo_accent(
 ```
 
 
-# 
-
-<br>
 <br>
 <br>
 <br>
 <br>
 <br>
 
-# .alert[Machine Learning Assisted]
-## Systematic Reviews
-
+# **Machine Learning Assisted**<br>**.orange[Systematic Reviews]**
 
 <br>
+<br>
+<br>
 
-Winter School - Zoom, 2022/01/25 -
+**Winter School** - Zoom, 2022/01/25 -
 
 Ph.D. in Translational Specialistic Medicine "G. B. Morgagni"
 
-Corrado Lanera | Unit of Biostatistics Epidemiology and Public Health
-
-<img src="img/logo_800anni.png" width="150px"/>
-<img src="img/DSCTV.png" width="50px"/>
-<img src="img/UBEP.png" width="50px"/>
-<img src="img/LAIMS.png" width="50px"/>
+Corrado Lanera | **Unit of Biostatistics, Epidemiology, and Public Health**
 
 ---
 class: inverse, bottom, right, hide-count
@@ -179,7 +176,7 @@ knitr::include_graphics("img/profilo_CL.jpg")
 
 [`r fontawesome::fa("link")`](https://www.unipd-ubep.it/) [**www.unipd-ubep.it**](https://www.unipd-ubep.it/)
 
-[`r fontawesome::fa("mail-bulk")`](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera@ubep.unipd.it**](mailto:Corrado.Lanera@ubep.unipd.it)
+[`r fontawesome::fa("mail-bulk")`](mailto:Corrado.Lanera@ubep.unipd.it) [**Corrado.Lanera .orange[@ubep.unipd.it]**](mailto:Corrado.Lanera@ubep.unipd.it)
 
 [`r fontawesome::fa("github")`](https://github.com/corradolanera)
 [`r fontawesome::fa("twitter")`](https://twitter.com/corradolanera)
@@ -196,9 +193,9 @@ class: hide-count
 
 # .orange[Outline]
 
-- What is a **Systematic Review**
+- What is a **Systematic Review** (SR)
 
-- How **Machine Learning** works for **NLP**
+- How **Machine Learning** (ML) works
 
 - How SRs can benefit from **automation** and **ML**
 
@@ -219,12 +216,54 @@ class: right
 ![](img/Hierarchy_of_Evidence.png)
 
 
+
+---
+class: center, middle
+
+
+
+```{r, echo=FALSE, out.width = "60%"}
+knitr::include_graphics("img/sr_process.png")
+```
+
+[https://systematicreview.info/](https://systematicreview.info/)
+
+
+---
+# Resourse-consuming stages
+
+1. Question: tens/hundreds of thousands records possibly to be retrieved
+  - search string - .orange[how to create?]
+  - sources - .orange[how to translate?]
+  - duplicates - .orange[how to identify?]
+
+2. Screening: tens/hundreds of thousands records possibly to be excluded
+  - exclusions - .orange[how much time/resources?]
+
+<br>
+<br>
+<br>
+
+> We do not consider Meta-Analyses here today, otherwhise...
+
+> $3$. Analyses: tens/hundreds numbers to extract (possibly from plots)
+  - Information retrieval - .orange[how to extract?]
+
+
+
 ---
 # PRISMA2020 Flow diagram
 
-```{r, echo =FALSE, out.width = "70%", fig.cap="https://doi.org/10.1371/journal.pmed.1003583"}
-knitr::include_graphics("img/prisma-flow-ml.png")
-```
+.left-column[
+Preferred Reporting Items for Systematic Reviews and Meta-Analyses
+
+<br>
+
+An evidence-based minimum set of items for reporting in SRs and MAs
+]
+.right-column[<img src="img/prisma-flow-ml.png" width="90%"/>
+.center[https://doi.org/10.1371/journal.pmed.1003583]
+]
 
 ---
 class: center, middle
@@ -237,32 +276,59 @@ knitr::include_app("https://estech.shinyapps.io/prisma_flowdiagram/")
 Full page: [https://estech.shinyapps.io/prisma_flowdiagram/](https://estech.shinyapps.io/prisma_flowdiagram/)
 
 
+---
+# How to save time?!
+
+
+## .orange[Automation]...
+
+- Question
+
+  - find-raplace / copy-paste search strings
+  - regular expressions for translating search strings
+
+
+- Screening
+
+  - Records' mangers for duplicates (MLT-based engine?!)
+  - Negative search for records' exclusions
+  - find-replace text to merge/highlight keywords
+  - use distinct colors for distincts keyvords
+
+<br>
+
+##.right[....orange[Machine Learning]]
 
 
 ---
 class: inverse, middle, center, hide-count
 
-# .orange[How **Machine Learning** works for **NLP**]
+# .orange[How **Machine Learning** works]
 
 
 ---
 
-# .orange[What is **Machine Learning**]
+# What is .orange[Machine Learning]
 
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt1[
+.left[
+Machine Learning deals with the study, the design and the development of algorithms that give computers the capability to learn .orange[without being explicitly programmed].
+]
 
-Machine Learning deals with the study, the design and the development of algorithms that give computers the capability to learn without being explicitly programmed
+.tr[
+— Arthur Samuel, 1959
+]
+]
 
-.right[Arthur Samuel, 1959]
+<br>
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="70%"}
-knitr::include_graphics("img/samuel.png")
-```
+.center[<img src="img/samuel.png" width="60%"/>]
 
 
 
 
 ---
-# .orange[Machine Learning input/output]
+# Machine Learning .orange[input]/.orange[output]
 
 
 
@@ -286,32 +352,33 @@ include_graphics("img/MLvsTrad.png")
 
 
 ---
+# Types of .orange[learning]
 
-### .orange[Unsupervised learning]
+#### .orange[Unsupervised] learning
 
 > The input data is _not labeled_ (there are not right answers!)
 
-The ML is given the input data and is left to learn optimal .orange[patterns]/.orange[clusters].
+Data is given to the model, which is left to learn optimal .orange[patterns]/.orange[clusters].
 
 
 
-### .orange[(Passive) Supervised learning]
+#### (Passive) .orange[Supervised] learning
 
 > The learning algorithm is provided with a set of inputs along with the corresponding .orange[correct] outputs.
 
-Learning involves the algorithm comparing its current actual inferred output with the correct one, so that to learn from its .orange[errors] (to minimize it).
+The algorithm compares its current inferred output with the correct one, so that to learn from its .orange[errors] (to minimize it).
 
 
-### .orange[Active learning]
+#### .orange[Active] learning
 
-> The learning algorithm interactively queries a user (or some other information source, an _oracle_) to label new data points with the desired outputs.
+> The learning algorithm .orange[interactively] queries a user (the _oracle_) to label new data with the desired (correct) outputs.
 
-Learning like the supervised one, with input data labeled on the .orange[oracle's knowledge]. The model continues to cycle query/train on ther left unlabelled data.
+With input data labeled on the fly by .orange[oracle's knowledge], the model cycles query/train stages on the left unlabeled data.
 
 
 
 ---
-# Deep Learning's Neurons
+# Learning's .orange[Neurons]
 
 I.e., anything more than old new-fashioned (generalized*) logistic regressions
 
@@ -325,43 +392,60 @@ $\text{output(s)} = g(\sum_{i=1}^n a_i*w_i)$
 
 <br>
 
-\*generalized := any **non-linear**, **differentiable**, $\mathbb{R}^n\to \mathbb{R}$ function.
+\*generalized := any **non-linear**, **differentiable**, $g:\mathbb{R}^n\to \mathbb{R}$ activation function.
 
 
 
 
 ---
-# Fully connected network 
+# ML: .orange[optimized] neurons' network 
 
-<pre><img src="img/mlp.png" width="50%"/>         <img src="img/fc.png" width="35%"/></pre>
+.pull-left[
+<img src="img/fc.png" width="80%"/>
+
+Each $W$ is one base dimension $\longrightarrow$<br>
+The error is the height $\longrightarrow$
+
+Every combination of possible Ws has its own error, i.e., an height
+
+Finding better Ws by running down the (smooth) hills, we improve the model's performance! (.orange[It learns!])
+
+]
 
 
-.center[<img src="img/descent.gif" width="50%"/>]
+.pull-right[
+
+Select some (initialy random) weights $W$, do the math, obtain a results.
+
+Compare it with the true result, and obtain the error, i.e., a number.
+
+(If the nonlinearity $g$ satisfy good mathematical requirements...)
+<br>
+<br>
+<br>
+
+<img src="img/descent.gif" width="100%"/>
+]
 
 
 
 
 
 ---
-# Recurrent networks
+# .orange[Recurrent] networks
+
+
+Imagine the arrows exiting the hidden layer re-enter into the
+very same hidden layer on the side of the next-piece of input. Loop again and again as needed.
+<br>
+<br>
 
 .center[<img src="img/rnn-full_CL.png" width="100%"/>]
 
-<small>
-
-$x^{<t>}\quad y^{<t>}\quad a^{<t>}$: input/output/activation at position t 
-
-$W_{hk}$ : weight matrix used on input k for output h
-
-$b_a\quad b_y$: (bias) vector for activation a, and output y
-
-$g_a\quad g_y$: nonlinearity for activation a, and output y
-
-$T$: length of input/output
-
-
 ---
-# Sequencies (input/output)
+# .orange[Sequencies] (input/output)
+
+You can create models managing .orange[arbitrary sized sequences] of input and output.
 
 <br>
 
@@ -373,28 +457,17 @@ $T$: length of input/output
 ---
 class: inverse, middle, center, hide-count
 
-# .orange[How SRs can benefict from<br>**automation** and **ML**]
+# **How SRs can benefit from<br>.orange[automation] and .orange[ML]**
 
-
----
-class: center, middle
-
-
-
-```{r, echo=FALSE, out.width = "60%"}
-knitr::include_graphics("img/sr_process.png")
-```
-
-[https://systematicreview.info/](https://systematicreview.info/)
 
 
 ---
 
-# Search string
+# Scoping search
 
 ### Questions
-- Can I avoid explict redundancy in the search string?
-- Can I use preliminary results to iteratively create a search string?
+- Can we avoid explicit redundancy in the search string?
+- Can we use preliminary results to iteratively create a search string?
 
 ### ML assistence
 - Words variation/synonyms (supervised, one-to-one/one-to-many)
@@ -406,7 +479,7 @@ knitr::include_graphics("img/sr_process.png")
 # Searching
 
 ### Question
-- How can I make my search string suitable for multiple DBs?
+- How can we make my search string suitable for multiple DBs?
 
 
 ### ML assistence
@@ -421,8 +494,8 @@ knitr::include_graphics("img/sr_process.png")
 
 ### Questions
 
-- How can I filter out records that are not RCTs?
-- How can I filter out records I am not interested in?
+- How can we filter out records that are not RCTs?
+- How can we filter out records I am not interested in?
 
 ### ML assistence
 
@@ -442,8 +515,8 @@ knitr::include_graphics("img/sr_process.png")
 ---
 class: inverse, hide-count
 
-# .orange[Issues and challenges]
-### ML technologies needs
+# .orange[Issues] **and** .orange[challenges]
+### ML technologies need
 
 - Transparency
 
@@ -465,32 +538,39 @@ class: inverse, hide-count
 
 ---
 
-# ICASR & Vienna Principles
+# .orange[Vienna Principles] (shortened)
 
-International Collaboration for the Automation of System Reviews (ICASR) 2015/10/02, Vienna Austria - https://ebrnetwork.org/the-vienna-principles/
+.orange[International Collaboration for the Automation of System Reviews] (ICASR) 2015/10/02, Vienna Austria - https://ebrnetwork.org/the-vienna-principles/
 
-- Systematic reviews involve multiple tasks, each with different issues, but **all must be improved**.
-- **Automation may assist with all tasks**, from scoping reviews to identifying research gaps as well protocol development to writing and dissemination of the review.
-- The processes for each task **can and should be continuously improved**, to be more efficient and more accurate.
-- Automation can and should **facilitate** the production of systematic reviews that adhere to **high standards** for the reporting, conduct and updating of rigorous reviews.
-- Developments should also provide for **flexibility in combining and using**, e.g. subdividing or merging steps and allowances for different users to use different interfaces.
-- Different groups with different expertise are working on different parts of the problem; to improve reviews as a whole will require **collaboration** between these groups.
-- Every automation technique **should be shared**, preferably by making code, evaluation data and corpora available **for free**.
+- SRs involve multiple tasks: **all must be improved**.
+
+- **Automation may assist with all tasks**.
+
+- The processes for each task **can and should be continuously improved**.
+
+- Automation must **facilitate** the production of SRs w/ **high standards**.
+
+- Developments should also provide for **flexibility in combining and using**.
+
+- To improve reviews as a whole will require **collaboration** between groups.
+
+- Every automation technique **should be shared for free**.
+
 - All automation techniques and tools should be evaluated using a **recommended and replicable method** with results and data reported.
 
 
 ---
 
-# .orange[Find your SR's ML assistant]
+# Find SR's .orange[ML assistant]
 
 
-- http://systematicreviewtools.com/
+- http://systematicreviewtools.com , a web-based catalogue of tools that support various tasks within the systematic review and wider evidence synthesis process. It was orignally developed by .orange[Dr Christopher Marshall and Anthea Sutton], launching in 2014. 
 
-- https://icasr.github.io
+- https://icasr.github.io , .orange[International Collaboration for the Automation of Systematic Reviews], a global network of a few dozen teams interested in the automation of systematic reviews.
 
-- https://sr-accelerator.com/#/tools
+- https://sr-accelerator.com/#/tools , .orange[Institute for Evidence Based Healthcare] (IEBH) Systematic Review Accelerator's recommended tools.
 
-- https://library-guides.ucl.ac.uk/systematic-reviews/software
+- https://library-guides.ucl.ac.uk/systematic-reviews/software , a range of software available for systematic reviews, especially to support screening and data extraction but also for other stages of the process, curated by the .orange[University College of London's library].
 
 
 ---
@@ -499,7 +579,7 @@ class: inverse, center, middle, hide-count
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 .left[
-_If you think the only acceptable performance is the "perfect performance",<br>AI is not for you!<br>But, I've heard that even humans have made mistakes..._
+_If you think the only acceptable performance is the ".orange[perfect performance]",<br>AI is not for you!<br>But, I've heard that even humans have made mistakes..._
 ]
 
 .tr[
@@ -509,7 +589,7 @@ _If you think the only acceptable performance is the "perfect performance",<br>A
 
 <br>
 
-# Thank you!
+# Thank .orange[you] for the attention!
 
 
 <br>
