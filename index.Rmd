@@ -15,6 +15,7 @@ output:
 ---
 class: center, middle, bg_title, hide-count
 
+
 <img src="img/logo_800anni.png" width="150px"/>
 <img src="img/DSCTV.png" width="50px"/>
 <img src="img/UBEP.png" width="50px"/>
@@ -67,8 +68,8 @@ meta() %>%
   meta_name("github-repo" = "CorradoLanera/ml4sr") %>% 
   meta_social(
     title = "Machine learning assisted Systematic Reviews",
-    url = "https://CorradoLanera.github.io/ml4sr/",
-    image = "https://github.com/CorradoLanera/ml4sr/raw/master/img/bg1.png",
+    url = "https://CorradoLanera.github.io/ml4sr/#1",
+    image = "https://github.com/CorradoLanera/ml4sr/raw/main/img/cover.jpg",
     og_type = "website",
     og_author = "UBEP",
     twitter_card_type = "summary",
@@ -230,7 +231,7 @@ knitr::include_graphics("img/sr_process.png")
 
 
 ---
-# Resourse-consuming stages
+# Resource-consuming stages
 
 1. Question: tens/hundreds of thousands records possibly to be retrieved
   - search string - .orange[how to create?]
