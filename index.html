@@ -183,6 +183,8 @@ class: hide-count
 
 - How SRs can benefit from **automation** and **ML**
 
+- .orange[Case Study]: **Expanding** PubMed Searches **to** ClinicalTrials.gov
+
 - Issues and challenges
 
 
@@ -214,24 +216,27 @@ class: center, middle
 ---
 # Resource-consuming stages
 
-1. Question: tens/hundreds of thousands records possibly to be retrieved
+1. **Question**: tens/hundreds of thousands records possibly to be retrieved
+
   - search string - .orange[how to create?]
+  
   - sources - .orange[how to translate?]
+  
   - duplicates - .orange[how to identify?]
 
-2. Screening: tens/hundreds of thousands records possibly to be excluded
+ &lt;br&gt;
+
+2. **Screening**: tens/hundreds of thousands records possibly to be excluded
+
   - exclusions - .orange[how much time/resources?]
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+ &lt;br&gt;
 
-&gt; We do not consider Meta-Analyses here today, otherwhise...
+3. **Analyses**: tens/hundreds numbers to extract (possibly from plots)
 
-&gt; `\(3\)`. Analyses: tens/hundreds numbers to extract (possibly from plots)
   - Information retrieval - .orange[how to extract?]
 
-
+&lt;small&gt;.right[(**...we do not consider (Meta-)Analyses here today...**)]
 
 ---
 # PRISMA2020 Flow diagram
@@ -264,16 +269,16 @@ Full page: [https://estech.shinyapps.io/prisma_flowdiagram/](https://estech.shin
 
 - Question
 
-  - find-raplace / copy-paste search strings
+  - find-replace / copy-paste search strings
   - regular expressions for translating search strings
 
 
 - Screening
 
-  - Records' mangers for duplicates (MLT-based engine?!)
-  - Negative search for records' exclusions
+  - Records mangers for duplicates (MLT-based engine?!)
+  - Negative search for records exclusions
   - find-replace text to merge/highlight keywords
-  - use distinct colors for distincts keyvords
+  - use distinct colors for distinct keywords
 
 &lt;br&gt;
 
@@ -313,7 +318,7 @@ Machine Learning deals with the study, the design and the development of algorit
 
 
 .left-code[
-In machine learning, we provide the .orange[input] (data), the desired result and out comes the .orange[learning] algorithm 
+In machine learning, we provide the .orange[input] (data), the desired result, and what comes out is the .orange[learning] algorithm .
 
 &lt;br&gt;
 &lt;br&gt;
@@ -344,7 +349,7 @@ Data is given to the model, which is left to learn optimal .orange[patterns]/.or
 
 &gt; The learning algorithm is provided with a set of inputs along with the corresponding .orange[correct] outputs.
 
-The algorithm compares its current inferred output with the correct one, so that to learn from its .orange[errors] (to minimize it).
+The algorithm compares its current inferred output with the correct one to learn from its .orange[errors] (i.e., to minimize it).
 
 
 #### .orange[Active] learning
@@ -393,11 +398,11 @@ Finding better Ws by running down the (smooth) hills, we improve the model's per
 
 .pull-right[
 
-Select some (initialy random) weights `\(W\)`, do the math, obtain a results.
+Select some (initially random) weights `\(W\)`, do the math, obtain a results.
 
 Compare it with the true result, and obtain the error, i.e., a number.
 
-(If the nonlinearity `\(g\)` satisfy good mathematical requirements...)
+(If the non-linearity `\(g\)` satisfy good mathematical requirements...)
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
@@ -457,13 +462,13 @@ class: inverse, middle, center, hide-count
 # Searching
 
 ### Question
-- How can we make my search string suitable for multiple DBs?
+- How can we make our search string suitable for multiple databases?
 
 
 ### ML assistence
 - Machine translations (supervised, many-to-many)
   - E.g., PolyGlot - https://sr-accelerator.com/#/polyglot
-- Pre-trained classifiers on records from standard DBs' search applied to other DBs (supervised, many-to-one)
+- Pre-trained classifiers on records from standard databases search applied to other databases (supervised, many-to-one)
   - E.g., COSTUMER - https://doi.org/10.1016/j.jclinepi.2018.06.015
 
 
@@ -488,7 +493,81 @@ class: inverse, middle, center, hide-count
 .orange[Trade-off]: minimize number of papers retained (exploration) Vs Maximize performance (exploitation). It is not possible to find a way to guarantee optimal performance without exploring all the records!
 
 
+---
+class: inverse, center, middle, hide-count
+# **Case Study:&lt;br&gt;&lt;br&gt;.orange[Expanding] PubMed .orange[searches] &lt;br&gt;.orange[to] ClinicalTrials.gov**
 
+
+---
+# SRs on .orange[Clinical Trials]
+
+Clinical trial registries are under-utilized:
+
+- No hierarchical branching structure
+- Text search is based on few fields
+- Cannot use queries’ combination
+.right[Jones et al 2014, https://doi.org/10.1186/2046-4053-3-126]
+
+
+&lt;br&gt;
+
+.orange[Baudart et al] 2017 (https://doi.org/10.1136/bmj.j448) reanalyzed 14 Systematic reviews and Meta-analyses, searching not only through standard databases but also in clinical trial registries:
+
+- Increase of patients .orange[from 10% to 50%]
+- Change in statistics .orange[up to 29%]
+
+&gt; **~[1.5, 2] years of work for two researchers**:
+&gt;
+&gt;  - from: 2015/03/16 (first search)
+&gt;  - to: [2016/08/11 (first submission), 2017/01/17 (last revision)]
+
+
+---
+# Methodology
+
+**Stage**: .orange[Searching] (Warning: not screening!)
+
+**Learning**: .orange[Passive Supervised]
+
+**Task**: Classification (.orange[many-to-one])
+
+
+&lt;br&gt;
+&lt;br&gt;
+
+**Training set**:
+- PubMed (294 positives and 7,200 negative records overall)
+
+**Test**:
+- ClinicalTrials.gov (233,609 records)
+
+---
+#### **Flowchart**
+
+&lt;img src="img/costumer.jpg" width="100%"&gt;
+
+---
+# Results
+
+&lt;br&gt;
+
+**left out 1 of 133 human-detected** positive citations .orange[from 233,609 trials] in ClinicalTrials.gov
+
+&lt;br&gt;
+&lt;br&gt;
+
+The ability to distinguish on-topic from off-topic articles ranged from an area under the receiver operator characteristic curve .orange[(AUC-ROC) of 93.4% to 99.9%].
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;small&gt;.right[
+— Lanera et al 2018&lt;br&gt; https://doi.org/10.1016/j.jclinepi.2018.06.015
+]
 
 ---
 class: inverse, hide-count
@@ -542,7 +621,7 @@ class: inverse, hide-count
 # Find SR's .orange[ML assistant]
 
 
-- http://systematicreviewtools.com , a web-based catalogue of tools that support various tasks within the systematic review and wider evidence synthesis process. It was orignally developed by .orange[Dr Christopher Marshall and Anthea Sutton], launching in 2014. 
+- http://systematicreviewtools.com , a web-based catalog of tools that support various tasks within the systematic review and wider evidence synthesis process. It was originally developed by .orange[Dr Christopher Marshall and Anthea Sutton], launching in 2014. 
 
 - https://icasr.github.io , .orange[International Collaboration for the Automation of Systematic Reviews], a global network of a few dozen teams interested in the automation of systematic reviews.
 
