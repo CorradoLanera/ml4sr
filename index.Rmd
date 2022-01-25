@@ -412,9 +412,9 @@ $\text{output(s)} = g(\sum_{i=1}^n a_i*w_i)$
 Each $W$ is one base dimension $\longrightarrow$<br>
 The error is the height $\longrightarrow$
 
-Every combination of possible Ws has its own error, i.e., an height
+Every combination of possible $W$s has its own error, i.e., an height
 
-Finding better Ws by running down the (smooth) hills, we improve the model's performance! (.orange[It learns!])
+Finding better $W$s by running down the (smooth) hills, we improve the model's performance! (.orange[It learns!])
 
 ]
 
