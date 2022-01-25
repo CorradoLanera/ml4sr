@@ -296,8 +296,8 @@ Full page: [https://estech.shinyapps.io/prisma_flowdiagram/](https://estech.shin
 
 - Screening
 
-  - Records mangers for duplicates (MLT-based engine?!)
-  - Negative search for records exclusions
+  - Record mangers for duplicates (MLT-based engine?!)
+  - Negative search for excluding records
   - find-replace text to merge/highlight keywords
   - use distinct colors for distinct keywords
 
@@ -501,7 +501,7 @@ class: inverse, middle, center, hide-count
 ### Questions
 
 - How can we filter out records that are not RCTs?
-- How can we filter out records I am not interested in?
+- How can we filter out records we are not interested in?
 
 ### ML assistence
 
