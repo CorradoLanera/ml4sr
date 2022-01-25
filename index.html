@@ -183,7 +183,7 @@ class: hide-count
 
 - How SRs can benefit from **automation** and **ML**
 
-- .orange[Case Study]: **Expanding** PubMed Searches **to** ClinicalTrials.gov
+- .orange[Case Study]: **expanding** PubMed searches **to** ClinicalTrials.gov
 
 - Issues and challenges
 
@@ -511,7 +511,7 @@ Clinical trial registries are under-utilized:
 
 &lt;br&gt;
 
-.orange[Baudart et al] 2017 (https://doi.org/10.1136/bmj.j448) reanalyzed 14 Systematic reviews and Meta-analyses, searching not only through standard databases but also in clinical trial registries:
+.orange[Baudart et al] 2017 (https://doi.org/10.1136/bmj.j448) reanalyzed 14 Systematic reviews and Meta-analyses*, searching not only through standard databases but also in clinical trial registries:
 
 - Increase of patients .orange[from 10% to 50%]
 - Change in statistics .orange[up to 29%]
@@ -522,6 +522,7 @@ Clinical trial registries are under-utilized:
 &gt;  - to: [2016/08/11 (first submission), 2017/01/17 (last revision)]
 
 
+&lt;small&gt;* All the (RCTs) assessing pharmaceutical treatments published between June 2014 and January 2015 that did not report a trial registry search.
 ---
 # Methodology
 
@@ -539,7 +540,7 @@ Clinical trial registries are under-utilized:
 - PubMed (294 positives and 7,200 negative records overall)
 
 **Test**:
-- ClinicalTrials.gov (233,609 records)
+- ClinicalTrials.gov (233,609 records, 2017/01/05 snapshot)
 
 ---
 #### **Flowchart**
@@ -551,18 +552,16 @@ Clinical trial registries are under-utilized:
 
 &lt;br&gt;
 
-**left out 1 of 133 human-detected** positive citations .orange[from 233,609 trials] in ClinicalTrials.gov
+**Model left out 1 of 133 human-detected** positive citations .orange[from 233,609 trials] in ClinicalTrials.gov
 
 &lt;br&gt;
+
+Total number of records from our automated search (**predicted positives**) was .orange[lower than] the number of records from .orange[the manual search] in half the cases (with a mean of 472 and a maximum of 2119 records compared with 572 and 2680, respectively, retrieved by Baudard et al).
+
 &lt;br&gt;
 
-The ability to distinguish on-topic from off-topic articles ranged from an area under the receiver operator characteristic curve .orange[(AUC-ROC) of 93.4% to 99.9%].
+The ability to **distinguish on-topic** from off-topic articles ranged from an area under the receiver operator characteristic curve .orange[(AUC-ROC) of 93.4% to 99.9%].
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
 &lt;br&gt;
 
 &lt;small&gt;.right[
